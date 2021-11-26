@@ -26,6 +26,9 @@ import datetime
 
 from random import random
 
+# Importamos la fila de doble fin para guardar a los agentes 
+from collections import deque 
+
 import UrbanMovementModel as UrbanM
 
 WIDTH = 2500

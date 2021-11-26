@@ -56,7 +56,9 @@ class CarAgent(Agent):
 
     def move(self):        
         # Incluir condicion de semaforo prendido
-        if (self.road_queue_position == 0 and self.isFarFromTrafficLight()) or self.isFarFromNextCar():
+        isFront = (self.model.roads_agents[self.road_number][0].unique_id == self.unique_id)
+        
+        if (isFront and self.isFarFromTrafficLight()) or self.isFarFromNextCar(isFront):
             self.position += self.velocity
             self.velocity += self.acceleration
             
@@ -71,6 +73,7 @@ class CarAgent(Agent):
     
         if (abs(np.linalg.norm(self.position - self.curve_origin)) <= 50):
             self.crossed_traffic_light = True
+            self.model.roads_agents[self.road_number].popleft()
             # Si no es una línea recta
             if (self.position[0] - self.curve_destiny[0]) * (self.position[1] - self.curve_destiny[1]) != 0:
                 self.curve_points = self.curve(self.position, self.curve_destiny)
@@ -97,20 +100,37 @@ class CarAgent(Agent):
             else:
                     self.curved_finished = True
 
-    
+    def get_car_index(self):
+        bot = 0
+        top = len(self.model.roads_agents[self.road_number]) - 1
+        target_id = self.unique_id
+        
+        while bot <= top:
+            mid = int (bot + (top - bot) / 2)
+            current_id = self.model.roads_agents[self.road_number][mid].unique_id
+            
+            if current_id == target_id:
+                return mid
+            elif current_id > target_id:
+                top = mid - 1
+            else:
+                bot = mid + 1
+            
+        return -1
+
     def isFarFromTrafficLight(self):
         return (abs(np.linalg.norm(self.position + self.velocity - self.traffic_light)) > self.stop_distance * 1.5)
     
-    def isFarFromNextCar(self):
-        if self.road_queue_position == 0:
+    def isFarFromNextCar(self, isFront):
+        if isFront:
             return False
         else: 
-            next_car = self.model.roads_agents[self.road_number][self.road_queue_position - 1]
+            queue_position = self.get_car_index()
+            next_car = self.model.roads_agents[self.road_number][queue_position - 1]
             self_speed = np.linalg.norm(self.velocity)
             self_acceleration = np.linalg.norm(self.acceleration)
             distance_to_stop = abs(0.5 * self_speed * self_speed / self_acceleration) + 80
             return (abs(np.linalg.norm((self.position + self.velocity) - (next_car.position + next_car.velocity))) > distance_to_stop)
-
 
     def curve_points(self, start, end, control, resolution=5):
             

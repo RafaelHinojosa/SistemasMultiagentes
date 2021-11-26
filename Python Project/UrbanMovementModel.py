@@ -14,6 +14,9 @@ import pandas as pd
 
 from random import random
 
+# Importamos la fila de doble fin para guardar a los agentes 
+from collections import deque 
+
 import CarAgent
 
 def get_agents(model):
@@ -61,8 +64,9 @@ class UrbanMovementModel(Model):
                         [w / 2 - i_dist / 4, h / 2 + i_dist / 2],
                         [w / 2 - i_dist / 2, h / 2 - i_dist / 4]]
         
-        self.roads_agents = [[], [], [], [], [], [], [], [], 
-                            [], [], [], [], [], [], [], []]
+        self.roads_agents = [deque([]), deque([]), deque([]), deque([]), deque([]), deque([]), deque([]), deque([]), 
+                            deque([]), deque([]), deque([]), deque([]), deque([]), deque([]), deque([]), deque([])]
+       
         
         self.time_for_spawn = np.array([0, 0, 0, 0, 0, 0, 0, 0])
         

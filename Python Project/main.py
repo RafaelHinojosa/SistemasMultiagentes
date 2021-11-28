@@ -1,13 +1,3 @@
-# Importamos las clases que se requieren para manejar los agentes (Agent) y su entorno (Model).
-# Cada modelo puede contener múltiples agentes.
-from mesa import Agent, Model 
-
-# Con ''SimultaneousActivation, hacemos que todos los agentes se activen ''al azar''.
-from mesa.time import RandomActivation
-
-# Haremos uso de ''DataCollector'' para obtener información de cada paso de la simulación.
-from mesa.datacollection import DataCollector
-
 # matplotlib lo usaremos crear una animación de cada uno de los pasos del modelo.
 #%matplotlib inline
 import matplotlib
@@ -16,28 +6,17 @@ import matplotlib.animation as animation
 plt.rcParams["animation.html"] = "jshtml"
 matplotlib.rcParams['animation.embed_limit'] = 2**128
 
-# Importamos los siguientes paquetes para el mejor manejo de valores numéricos.
-import numpy as np
-import pandas as pd
-
-# Definimos otros paquetes que vamos a usar para medir el tiempo de ejecución de nuestro algoritmo.
-import time
-import datetime
-
-from random import random
-
-# Importamos la fila de doble fin para guardar a los agentes 
-from collections import deque 
-
 import UrbanMovementModel as UrbanM
 
-WIDTH = 2500
-HEIGHT = 1250
+WIDTH = 10000
+HEIGHT = 5000
 INTERSECT_DIST = 400
-PROB_SPAWN = 0.15
-MAX_ITERATIONS = 100
+PROB_SPAWN = 0.1
+MAX_TIME_ON = 20
+MAX_TIME_OFF = 75
+MAX_ITERATIONS = 300
 
-model = UrbanM.UrbanMovementModel(PROB_SPAWN, WIDTH, HEIGHT, INTERSECT_DIST)
+model = UrbanM.UrbanMovementModel(PROB_SPAWN, WIDTH, HEIGHT, INTERSECT_DIST, MAX_TIME_ON, MAX_TIME_OFF)
 for i in range(MAX_ITERATIONS):
     model.step()
     
@@ -58,8 +37,7 @@ plt.plot(x1, y2, color='black')
 x2 = [WIDTH, WIDTH / 2 + INTERSECT_DIST / 2, WIDTH / 2 + INTERSECT_DIST / 2]
 plt.plot(x2, y2, color='black')
 plt.plot(x2, y1, color='black')
-
-# Izquierda
+# Left
 xlane = [0, WIDTH / 2 - INTERSECT_DIST / 2]
 ylane = [HEIGHT / 2, HEIGHT / 2]
 plt.plot(xlane, ylane, color='black')
@@ -67,7 +45,7 @@ ylane = [HEIGHT / 2 - INTERSECT_DIST / 4, HEIGHT / 2 - INTERSECT_DIST / 4]
 plt.plot(xlane, ylane, color='y', linestyle='--')
 ylane = [HEIGHT / 2 + INTERSECT_DIST / 4, HEIGHT / 2 + INTERSECT_DIST / 4]
 plt.plot(xlane, ylane, color='y', linestyle='--')
-# Derecha
+# Right
 xlane = [WIDTH / 2 + INTERSECT_DIST / 2, WIDTH]
 ylane = [HEIGHT / 2, HEIGHT / 2]
 plt.plot(xlane, ylane, color='black')
@@ -75,7 +53,7 @@ ylane = [HEIGHT / 2 - INTERSECT_DIST / 4, HEIGHT / 2 - INTERSECT_DIST / 4]
 plt.plot(xlane, ylane, color='y', linestyle='--')
 ylane = [HEIGHT / 2 + INTERSECT_DIST / 4, HEIGHT / 2 + INTERSECT_DIST / 4]
 plt.plot(xlane, ylane, color='y', linestyle='--')
-# Abajo
+# Bottom
 xlane = [WIDTH / 2, WIDTH / 2]
 ylane = [0, HEIGHT / 2 - INTERSECT_DIST / 2]
 plt.plot(xlane, ylane, color='black')
@@ -83,7 +61,7 @@ xlane = [WIDTH / 2 - INTERSECT_DIST / 4, WIDTH / 2 - INTERSECT_DIST / 4]
 plt.plot(xlane, ylane, color='y', linestyle='--')
 xlane = [WIDTH / 2 + INTERSECT_DIST / 4, WIDTH / 2 + INTERSECT_DIST / 4]
 plt.plot(xlane, ylane, color='y', linestyle='--')
-# Arriba
+# Top
 xlane = [WIDTH / 2, WIDTH / 2]
 ylane = [HEIGHT / 2 + INTERSECT_DIST / 2, HEIGHT]
 plt.plot(xlane, ylane, color='black')

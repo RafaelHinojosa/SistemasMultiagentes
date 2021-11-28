@@ -1,110 +1,103 @@
-# Importamos las clases que se requieren para manejar los agentes (Agent) y su entorno (Model).
-# Cada modelo puede contener múltiples agentes.
 from mesa import Agent
-
-# Importamos los siguientes paquetes para el mejor manejo de valores numéricos.
 import numpy as np
 
 
 class CarAgent(Agent):
-    def __init__(self, unique_id, model, width, height, origin, destiny, traffic_light, stop_distance, road_queue_position, road_number, curve_origin, curve_destiny, num_traffic_light):
+    def __init__(self, unique_id, model, width, height, origin, destiny, light_pos, stop_distance, road_number, curve_origin, curve_destiny, num_traffic_light, light_agent):
         super().__init__(unique_id, model)
         
-        # Vector que representa la posición en 2D
+        # Initial spawn position
         self.position = np.array((origin[0], origin[1]), dtype = np.float64)
-        self.origin_road = origin
+        self.origin_road = np.array((origin[0], origin[1]), dtype = np.float64)
         self.destiny_road = destiny
-        self.traffic_light = traffic_light
         self.stop_distance = stop_distance
-        self.next_car_max_distance = 50
-        self.road_queue_position = road_queue_position
+        self.next_car_min_distance = stop_distance
         self.road_number = road_number
         self.curve_origin = curve_origin
         self.curve_destiny = curve_destiny
         self.num_traffic_light = num_traffic_light
-    
-        # Vector que representa la velocidad
-        if origin[0] > width / 2 - stop_distance * 2 and origin[0] < width / 2 + stop_distance * 2:
-            if origin[1] < height / 2:
-                self.velocity = np.array([0, 10])
-                self.acceleration = np.array([0, 10])
-            else:
-                self.velocity = np.array([0, -10])
-                self.acceleration = np.array([0, -10])
-        else:
-            if origin[0] < width / 2:
-                self.velocity = np.array([10, 0])
-                self.acceleration = np.array([10, 0])
-            else:
-                self.velocity = np.array([-10, 0])
-                self.acceleration = np.array([-10, 0])
-        
-        
-        # Límite de aceleración
-        self.max_acceleration = 10
-        
-        # Límite de velocidad
+        self.light_agent = light_agent
+        self.light_agent.n_cars += 1
+        # Speed limit
         self.max_speed = 60
-        
-        # Distancia percibida como segura por el agente
-        self.perception = 50
-        
-        self.width = width
-        self.height = height
-        self.crossed_traffic_light = False
+        self.crossed_traffic_light = None
         self.curved_finished = False
 
-    def move(self):        
-        # Incluir condicion de semaforo prendido
+        if (self.num_traffic_light == 0):
+            self.speed = np.array([0, 10])
+            self.acceleration = np.array([0, 10])
+        elif (self.num_traffic_light == 1):
+            self.speed = np.array([-10, 0])
+            self.acceleration = np.array([-10, 0])
+        elif (self.num_traffic_light == 2):
+            self.speed = np.array([0, -10])
+            self.acceleration = np.array([0, -10])
+        elif (self.num_traffic_light == 3):
+            self.speed = np.array([10, 0])
+            self.acceleration = np.array([10, 0])
+
+
+    def move(self):
+        # Determine if car is the first one of the road
         isFront = (self.model.roads_agents[self.road_number][0].unique_id == self.unique_id)
         
-        if (isFront and self.isFarFromTrafficLight()) or self.isFarFromNextCar(isFront):
-            self.position += self.velocity
-            self.velocity += self.acceleration
+        if (isFront and (self.light_agent.status == 1 or self.isFarFromTrafficLight())) or self.isFarFromNextCar(isFront):
+            self.position += self.speed
+            self.speed += self.acceleration
             
-            if np.linalg.norm(self.velocity) > self.max_speed:
-                self.velocity = self.velocity / np.linalg.norm(self.velocity) * self.max_speed
+            if np.linalg.norm(self.speed) > self.max_speed:
+                self.speed = self.speed / np.linalg.norm(self.speed) * self.max_speed
+
+            if self.crossed_traffic_light == None and self.isAboutToCrossTrafficLight():
+                self.crossed_traffic_light = False
+                self.light_agent.crossing_cars += 1
         else:
-            if np.linalg.norm(self.velocity) > 0:
-                self.velocity -= self.acceleration
-                self.position += self.velocity
+            if np.linalg.norm(self.speed) > 0:
+                self.speed -= self.acceleration
+                self.position += self.speed
+            elif np.linalg.norm(self.speed) == 0:
+                self.light_agent.sum_total_wait += 1
             else:
-                self.velocity *= 0
-    
-        if (abs(np.linalg.norm(self.position - self.curve_origin)) <= 50):
+                self.speed *= 0
+
+        if self.crossedTrafficLight():
+            if self.crossed_traffic_light == False:
+                self.light_agent.crossing_cars -= 1
             self.crossed_traffic_light = True
+            self.light_agent.n_cars -= 1
+            # Deque car from road
             self.model.roads_agents[self.road_number].popleft()
-            # Si no es una línea recta
+            # If it has to curve to reach destiny
             if (self.position[0] - self.curve_destiny[0]) * (self.position[1] - self.curve_destiny[1]) != 0:
                 self.curve_points = self.curve(self.position, self.curve_destiny)
                 self.temp = 0
+            # No curve, go forward
             else:
                 self.curved_finished = True
 
-    
+
     def step(self):
-        if not self.crossed_traffic_light:
+        if self.crossed_traffic_light != True:
             self.move()
         elif self.curved_finished == True:
-                self.velocity = self.destiny_road - self.position
-                if np.linalg.norm(self.velocity) > self.max_speed:
-                    self.velocity = self.velocity / np.linalg.norm(self.velocity) * self.max_speed
-                
-                self.position += self.velocity
+                self.speed = self.destiny_road - self.position
+                if np.linalg.norm(self.speed) > self.max_speed:
+                    self.speed = self.speed / np.linalg.norm(self.speed) * self.max_speed
+                self.position += self.speed
         else:
             if self.temp < len(self.curve_points):
                 vec = (self.curve_points[self.temp][0] - self.position)
-                self.velocity = vec
-                self.position += self.velocity
+                self.speed = vec
+                self.position += self.speed
                 self.temp += 1
             else:
-                    self.curved_finished = True
+                self.curved_finished = True
 
     def get_car_index(self):
         bot = 0
         top = len(self.model.roads_agents[self.road_number]) - 1
         target_id = self.unique_id
-        
+        # Binary Search
         while bot <= top:
             mid = int (bot + (top - bot) / 2)
             current_id = self.model.roads_agents[self.road_number][mid].unique_id
@@ -118,30 +111,40 @@ class CarAgent(Agent):
             
         return -1
 
+
     def isFarFromTrafficLight(self):
-        return (abs(np.linalg.norm(self.position + self.velocity - self.traffic_light)) > self.stop_distance * 1.5)
-    
+        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) > self.stop_distance * 1.5)
+
+
+    def isAboutToCrossTrafficLight(self):
+        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) < self.stop_distance * 3)
+
+
     def isFarFromNextCar(self, isFront):
         if isFront:
             return False
-        else: 
+        else:
             queue_position = self.get_car_index()
             next_car = self.model.roads_agents[self.road_number][queue_position - 1]
-            self_speed = np.linalg.norm(self.velocity)
+            self_speed = np.linalg.norm(self.speed)
             self_acceleration = np.linalg.norm(self.acceleration)
-            distance_to_stop = abs(0.5 * self_speed * self_speed / self_acceleration) + 80
-            return (abs(np.linalg.norm((self.position + self.velocity) - (next_car.position + next_car.velocity))) > distance_to_stop)
+            distance_to_stop = abs(0.5 * self_speed * self_speed / self_acceleration) + self.next_car_min_distance
+            return (abs(np.linalg.norm((self.position + self.speed) - (next_car.position + next_car.speed))) > distance_to_stop)
 
-    def curve_points(self, start, end, control, resolution=5):
-            
+    def crossedTrafficLight(self):
+        return (abs(np.linalg.norm(self.position - self.origin_road)) \
+                    > abs(np.linalg.norm(self.curve_origin - self.origin_road)))
+
+    def curve_points(self, start, end, control, resolution = 5):
         path = []
         for i in range(resolution+1):
             t = i/resolution
-            x = (1-t)**2 * start[0] + 2*(1-t)*t * control[0] + t**2 *end[0]
-            y = (1-t)**2 * start[1] + 2*(1-t)*t * control[1] + t**2 *end[1]
+            x = (1-t)**2 * start[0] + 2*(1-t)*t * control[0] + t**2 * end[0]
+            y = (1-t)**2 * start[1] + 2*(1-t)*t * control[1] + t**2 * end[1]
             path.append((x, y))
 
         return [(path[i-1], path[i]) for i in range(1, len(path))]
+
 
     def curve(self, start, end):
         turn_direction = 0
@@ -173,7 +176,6 @@ class CarAgent(Agent):
 
 
         CLOCK_WISE = 0
-        NON_CLOCK_WISE = 1
         # Get control point
         x = min(start[0], end[0])
         y = min(start[1], end[1])

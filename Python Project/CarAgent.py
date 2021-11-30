@@ -89,7 +89,7 @@ class CarAgent(Agent):
                 vec = (self.curve_points[self.temp][0] - self.position)
                 self.speed = vec
                 self.position += self.speed
-                self.temp += 1
+                self.temp += 2
             else:
                 self.curved_finished = True
 

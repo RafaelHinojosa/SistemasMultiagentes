@@ -9,18 +9,26 @@ matplotlib.rcParams['animation.embed_limit'] = 2**128
 import UrbanMovementModel as UrbanM
 
 WIDTH = 10000
-HEIGHT = 5000
+HEIGHT = 10000
 INTERSECT_DIST = 400
-PROB_SPAWN = 0.1
-MAX_TIME_ON = 20
-MAX_TIME_OFF = 75
-MAX_ITERATIONS = 300
+PROB_SPAWN = 0.01
+MAX_TIME_ON = 40
+MAX_TIME_OFF = 150
+SEED = 1
+INTELLIGENT = True
+MAX_ITERATIONS = 1000
 
-model = UrbanM.UrbanMovementModel(PROB_SPAWN, WIDTH, HEIGHT, INTERSECT_DIST, MAX_TIME_ON, MAX_TIME_OFF)
+model = UrbanM.UrbanMovementModel(PROB_SPAWN, WIDTH, HEIGHT, INTERSECT_DIST, MAX_TIME_ON, MAX_TIME_OFF, SEED, INTELLIGENT)
 for i in range(MAX_ITERATIONS):
     model.step()
     
 all_positions = model.datacollector.get_model_vars_dataframe()
+
+title = "Total wait time: " + str(model.total_wait_time)
+if INTELLIGENT:
+    title += " (Intelligent Model)"
+else:
+    title += " (Normal Model)"
 
 fig, ax = plt.subplots(figsize=(14,7))
 
@@ -69,6 +77,7 @@ xlane = [WIDTH / 2 - INTERSECT_DIST / 4, WIDTH / 2 - INTERSECT_DIST / 4]
 plt.plot(xlane, ylane, color='y', linestyle='--')
 xlane = [WIDTH / 2 + INTERSECT_DIST / 4, WIDTH / 2 + INTERSECT_DIST / 4]
 plt.plot(xlane, ylane, color='y', linestyle='--')
+plt.title(title)
 
 for i in range(len(model.curve)):
     plt.plot()

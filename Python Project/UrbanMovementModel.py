@@ -2,7 +2,7 @@ from mesa import Model
 from mesa.time import RandomActivation
 from mesa.datacollection import DataCollector
 import numpy as np
-from random import random
+import random
 # Importamos la fila de doble fin para guardar a los agentes 
 from collections import deque
 from math import ceil
@@ -19,7 +19,9 @@ def get_agents(model):
 
 
 class UrbanMovementModel(Model):
-    def __init__(self, spawn_cars, w, h, i_dist, max_on, max_off):
+    def __init__(self, spawn_cars, w, h, i_dist, max_on, max_off, seed = 1, intelligent = True):
+        random.seed(seed)
+        np.random.seed(seed)
         self.num_agents = 0
         self.spawn_cars = spawn_cars
         self.width = w
@@ -29,7 +31,11 @@ class UrbanMovementModel(Model):
         self.max_on = max_on
         self.max_off = max_off
         self.actual_light = None
+        self.past_light = None
         self.delay_next_light = 0
+        self.intelligent = intelligent
+        self.total_wait_time = 0
+        self.time_unnecessary_light = 0
         
         # (carril, semáforo, [carriles destino], direction)
         self.intersection = [(1, 1, [8, 12]), (2, 1, [3, 7]), 
@@ -77,25 +83,22 @@ class UrbanMovementModel(Model):
     def createLights(self):
         for i in range(len(self.light_pos)):
             self.num_agents += 1
-            light = TrafficLightAgent.TrafficLightAgent(self.num_agents, self, self.light_pos[i], self.max_on, self.max_off)
+            light = TrafficLightAgent.TrafficLightAgent(self.num_agents, self, self.light_pos[i], self.max_on, self.max_off, self.intelligent)
             self.light_agents.append(light)
             self.schedule.add(light)
 
 
     def createAgents(self):
         for i in range(len(self.intersection)):
-            if self.time_for_spawn[i] <= 0 and random() <= self.spawn_cars:
+            if self.time_for_spawn[i] <= 0 and random.random() <= self.spawn_cars:
                 self.time_for_spawn[i] = 3
                 (road, light, dest) = self.intersection[i]
                 j = np.random.randint(len(dest))
                 self.num_agents += 1
                 car = CarAgent.CarAgent(self.num_agents, 
-                            self, 
-                            self.width, 
-                            self.height,
+                            self,
                             self.road_pos[road - 1], 
                             self.road_pos[dest[j] - 1],
-                            self.light_pos[light - 1], 
                             self.i_dist / 4,
                             road - 1,
                             self.curve[road - 1],
@@ -108,29 +111,52 @@ class UrbanMovementModel(Model):
 
     def change_light(self):
         if self.actual_light == None and self.delay_next_light <= 0:
-            best_light = None
-            best_priority = 0
-            for i in range(len(self.light_agents)):
-                actual_light = self.light_agents[i]
-                priority = 0
-                if actual_light.wait_off >= actual_light.max_time_off:
-                    priority += (actual_light.wait_off * 5)
-                if actual_light.crossing_cars > 0:
-                    priority += ceil(actual_light.sum_total_wait / actual_light.crossing_cars)
-                
-                if priority > best_priority:
-                    best_priority = priority
-                    best_light = i
+            if self.intelligent == True:
+                best_light = None
+                best_priority = 0
+                for i in range(len(self.light_agents)):
+                    actual_light = self.light_agents[i]
+                    priority = 0
+                    if actual_light.wait_off >= actual_light.max_time_off:
+                        priority += (actual_light.wait_off * 5)
+                    if actual_light.crossing_cars > 0:
+                        priority += ceil(actual_light.sum_total_wait / actual_light.crossing_cars)
+                    
+                    if priority > best_priority:
+                        best_priority = priority
+                        best_light = i
 
-            if best_light != None:
-                self.light_agents[best_light].status = 1
-                self.light_agents[best_light].color = 'green'
-                self.actual_light = best_light
+                if best_light != None:
+                    self.light_agents[best_light].status = 1
+                    self.light_agents[best_light].color = "green"
+                    self.actual_light = best_light
+            else:
+                if self.past_light == None:
+                    self.actual_light = 0
+                else:
+                    self.actual_light = (self.past_light + 1) % len(self.light_agents)
+                self.light_agents[self.actual_light].status = 1
+                self.light_agents[self.actual_light].color = "green"
+
         elif self.actual_light != None and self.light_agents[self.actual_light].status == 0:
+            self.past_light = self.actual_light
             self.actual_light = None
             self.delay_next_light = 4
         else:
             self.delay_next_light -= 1
+    
+    def get_agents(self):
+        car_positions = []
+        traffic_lights = []
+        for agent in self.schedule.agents:
+            if agent.type == "Car":
+                car_positions.append(agent.position)
+            elif agent.type == "TrafficLight":
+                traffic_lights.append(agent.color)
+        car_positions = np.asarray(car_positions)
+        traffic_lights = np.asarray(traffic_lights)
+        return (car_positions, traffic_lights)
+
 
 
     def step(self):

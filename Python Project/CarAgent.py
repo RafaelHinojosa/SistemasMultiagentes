@@ -3,10 +3,11 @@ import numpy as np
 
 
 class CarAgent(Agent):
-    def __init__(self, unique_id, model, width, height, origin, destiny, light_pos, stop_distance, road_number, curve_origin, curve_destiny, num_traffic_light, light_agent):
+    def __init__(self, unique_id, model, origin, destiny, stop_distance, road_number, curve_origin, curve_destiny, num_traffic_light, light_agent):
         super().__init__(unique_id, model)
         
         # Initial spawn position
+        self.type = "Car"
         self.position = np.array((origin[0], origin[1]), dtype = np.float64)
         self.origin_road = np.array((origin[0], origin[1]), dtype = np.float64)
         self.destiny_road = destiny
@@ -21,6 +22,7 @@ class CarAgent(Agent):
         # Speed limit
         self.max_speed = 60
         self.crossed_traffic_light = None
+        self.total_wait = 0
         self.curved_finished = False
 
         if (self.num_traffic_light == 0):
@@ -56,7 +58,9 @@ class CarAgent(Agent):
                 self.speed -= self.acceleration
                 self.position += self.speed
             elif np.linalg.norm(self.speed) == 0:
+                self.model.total_wait_time += 1
                 self.light_agent.sum_total_wait += 1
+                self.total_wait += 1
             else:
                 self.speed *= 0
 
@@ -65,6 +69,8 @@ class CarAgent(Agent):
                 self.light_agent.crossing_cars -= 1
             self.crossed_traffic_light = True
             self.light_agent.n_cars -= 1
+            self.light_agent.sum_total_wait -= self.total_wait
+            self.total_wait = 0
             # Deque car from road
             self.model.roads_agents[self.road_number].popleft()
             # If it has to curve to reach destiny

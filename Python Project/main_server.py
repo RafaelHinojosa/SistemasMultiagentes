@@ -1,15 +1,14 @@
 # Python server to interact with Unity
-
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 import json
 
 import UrbanMovementModel as UrbanM
 
-WIDTH = 10000
-HEIGHT = 5000
-INTERSECT_DIST = 400
-PROB_SPAWN = 0.01
+WIDTH = 300
+HEIGHT = 300
+INTERSECT_DIST = 30
+PROB_SPAWN = 0.4
 MAX_TIME_ON = 40
 MAX_TIME_OFF = 150
 SEED = 1
@@ -20,11 +19,11 @@ model = UrbanM.UrbanMovementModel(PROB_SPAWN, WIDTH, HEIGHT, INTERSECT_DIST, MAX
 def updateModel():
     model.step()
     (car_positions, traffic_lights) = model.get_agents()
-    json = positionsToJSON(car_positions, traffic_lights)
-    print(json)
-    return json
+    jsoncars = positionsToJSON(car_positions)
+    jsontrafficlights = json.dumps(traffic_lights)
+    return (jsoncars, jsontrafficlights)
 
-def positionsToJSON(car_positions, traffic_lights):
+def positionsToJSON(car_positions):
     DICT = []
     for position in car_positions:
         pos = {
@@ -54,14 +53,14 @@ class Server(BaseHTTPRequestHandler):
         logging.info("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
                      str(self.path), str(self.headers), json.dumps(post_data))
         
-        positionsJSON = updateModel()
+        (jsoncars, jsontrafficlights) = updateModel()
         self._set_response()
-        resp = "{\"cars\":" + positionsJSON + "}"
-        #print(resp)
+        # Build json to send car positions and traffic lights status
+        resp = "{\"cars\":" + jsoncars + ",\"lights\":" + jsontrafficlights + "}"
         self.wfile.write(resp.encode('utf-8'))
 
 
-def run(server_class=HTTPServer, handler_class=Server, port=8585):
+def run(server_class=HTTPServer, handler_class=Server, port=8080):
     logging.basicConfig(level=logging.INFO)
     server_address = ('',port)
     httpd = server_class(server_address, handler_class)
@@ -75,8 +74,4 @@ def run(server_class=HTTPServer, handler_class=Server, port=8585):
 
 if __name__ == '__main__':
     from sys import argv
-    run(port=8080)
-    # if len(argv) == 2:
-    #     run(port=int(argv[1]))
-    # else:
-    #     run()
+    run()

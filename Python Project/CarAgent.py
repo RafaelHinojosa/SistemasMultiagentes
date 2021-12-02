@@ -20,39 +20,43 @@ class CarAgent(Agent):
         self.light_agent = light_agent
         self.light_agent.n_cars += 1
         # Speed limit
-        self.max_speed = 60
+        self.max_speed = self.stop_distance
         self.crossed_traffic_light = None
         self.total_wait = 0
         self.curved_finished = False
 
         if (self.num_traffic_light == 0):
-            self.speed = np.array([0, 10])
-            self.acceleration = np.array([0, 10])
+            self.speed = np.array([0, (self.stop_distance / 4)])
+            self.acceleration = np.array([0, (self.stop_distance / 4)])
         elif (self.num_traffic_light == 1):
-            self.speed = np.array([-10, 0])
-            self.acceleration = np.array([-10, 0])
+            self.speed = np.array([-(self.stop_distance / 4), 0])
+            self.acceleration = np.array([-(self.stop_distance / 4), 0])
         elif (self.num_traffic_light == 2):
-            self.speed = np.array([0, -10])
-            self.acceleration = np.array([0, -10])
+            self.speed = np.array([0, -(self.stop_distance / 4)])
+            self.acceleration = np.array([0, -(self.stop_distance / 4)])
         elif (self.num_traffic_light == 3):
-            self.speed = np.array([10, 0])
-            self.acceleration = np.array([10, 0])
+            self.speed = np.array([(self.stop_distance / 4), 0])
+            self.acceleration = np.array([(self.stop_distance / 4), 0])
 
 
-    def move(self):
+    def move_start(self):
         # Determine if car is the first one of the road
-        isFront = (self.model.roads_agents[self.road_number][0].unique_id == self.unique_id)
+        is_front = (self.model.roads_agents[self.road_number][0].unique_id == self.unique_id)
         
-        if (isFront and (self.light_agent.status == 1 or self.isFarFromTrafficLight())) or self.isFarFromNextCar(isFront):
-            self.position += self.speed
-            self.speed += self.acceleration
+        if (is_front and (self.light_agent.status == 1 or self.is_far_from_traffic_light())) or self.is_far_from_next_car(is_front):
+            if(self.has_to_curve() and self.will_cross_traffic_light()):
+                self.position += self.acceleration
+                self.update_when_crossed()
+            else:
+                self.position += self.speed
+                self.speed += self.acceleration
             
-            if np.linalg.norm(self.speed) > self.max_speed:
-                self.speed = self.speed / np.linalg.norm(self.speed) * self.max_speed
+                if np.linalg.norm(self.speed) > self.max_speed:
+                    self.speed = self.speed / np.linalg.norm(self.speed) * self.max_speed
 
-            if self.crossed_traffic_light == None and self.isAboutToCrossTrafficLight():
-                self.crossed_traffic_light = False
-                self.light_agent.crossing_cars += 1
+                if self.crossed_traffic_light == None and self.is_about_cross_traffic_light():
+                    self.crossed_traffic_light = False
+                    self.light_agent.crossing_cars += 1
         else:
             if np.linalg.norm(self.speed) > 0:
                 self.speed -= self.acceleration
@@ -64,40 +68,53 @@ class CarAgent(Agent):
             else:
                 self.speed *= 0
 
-        if self.crossedTrafficLight():
-            if self.crossed_traffic_light == False:
-                self.light_agent.crossing_cars -= 1
-            self.crossed_traffic_light = True
-            self.light_agent.n_cars -= 1
-            self.light_agent.sum_total_wait -= self.total_wait
-            self.total_wait = 0
-            # Deque car from road
-            self.model.roads_agents[self.road_number].popleft()
-            # If it has to curve to reach destiny
-            if (self.position[0] - self.curve_destiny[0]) * (self.position[1] - self.curve_destiny[1]) != 0:
-                self.curve_points = self.curve(self.position, self.curve_destiny)
-                self.temp = 0
-            # No curve, go forward
-            else:
-                self.curved_finished = True
+        if self.has_crossed_traffic_light() and self.crossed_traffic_light != True:
+            self.update_when_crossed()
 
+
+    def update_when_crossed(self):
+        if self.crossed_traffic_light == False:
+            self.light_agent.crossing_cars -= 1
+        self.crossed_traffic_light = True
+        self.light_agent.n_cars -= 1
+        self.light_agent.sum_total_wait -= self.total_wait
+        self.total_wait = 0
+        # Deque car from road
+        self.model.roads_agents[self.road_number].popleft()
+        # If it has to curve to reach destiny
+        if self.has_to_curve():
+            self.curve_points = self.curve(self.position, self.curve_destiny)
+            self.temp = len(self.curve_points) - 1
+            self.move_curve()
+        # No curve, go forward
+        else:
+            self.curved_finished = True
+            self.move_destination()
+
+
+    def move_curve(self):
+        if self.temp < len(self.curve_points):
+            vec = (self.curve_points[self.temp][0] - self.position)
+            self.speed = vec
+            self.position += self.speed
+            self.temp += 2
+        else:
+            self.curved_finished = True
+            self.move_destination()
+
+    def move_destination(self):
+        self.speed = self.destiny_road - self.position
+        if np.linalg.norm(self.speed) > self.max_speed:
+            self.speed = self.speed / np.linalg.norm(self.speed) * self.max_speed
+        self.position += self.speed
 
     def step(self):
         if self.crossed_traffic_light != True:
-            self.move()
+            self.move_start()
         elif self.curved_finished == True:
-                self.speed = self.destiny_road - self.position
-                if np.linalg.norm(self.speed) > self.max_speed:
-                    self.speed = self.speed / np.linalg.norm(self.speed) * self.max_speed
-                self.position += self.speed
+            self.move_destination()
         else:
-            if self.temp < len(self.curve_points):
-                vec = (self.curve_points[self.temp][0] - self.position)
-                self.speed = vec
-                self.position += self.speed
-                self.temp += 2
-            else:
-                self.curved_finished = True
+            self.move_curve()
 
     def get_car_index(self):
         bot = 0
@@ -118,16 +135,16 @@ class CarAgent(Agent):
         return -1
 
 
-    def isFarFromTrafficLight(self):
-        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) > self.stop_distance * 1.5)
+    def is_far_from_traffic_light(self):
+        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) > self.stop_distance)
 
 
-    def isAboutToCrossTrafficLight(self):
-        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) < self.stop_distance * 3)
+    def is_about_cross_traffic_light(self):
+        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) < self.stop_distance * 1.5)
 
 
-    def isFarFromNextCar(self, isFront):
-        if isFront:
+    def is_far_from_next_car(self, is_front):
+        if is_front:
             return False
         else:
             queue_position = self.get_car_index()
@@ -137,9 +154,17 @@ class CarAgent(Agent):
             distance_to_stop = abs(0.5 * self_speed * self_speed / self_acceleration) + self.next_car_min_distance
             return (abs(np.linalg.norm((self.position + self.speed) - (next_car.position + next_car.speed))) > distance_to_stop)
 
-    def crossedTrafficLight(self):
+    def has_crossed_traffic_light(self):
         return (abs(np.linalg.norm(self.position - self.origin_road)) \
                     > abs(np.linalg.norm(self.curve_origin - self.origin_road)))
+    
+    def will_cross_traffic_light(self):
+        return (abs(np.linalg.norm(self.position + self.speed - self.origin_road)) \
+                    > abs(np.linalg.norm(self.curve_origin - self.origin_road)))
+
+    def has_to_curve(self):
+        return (self.position[0] - self.curve_destiny[0]) * (self.position[1] - self.curve_destiny[1]) != 0
+
 
     def curve_points(self, start, end, control, resolution = 5):
         path = []

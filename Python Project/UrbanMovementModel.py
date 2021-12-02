@@ -152,7 +152,10 @@ class UrbanMovementModel(Model):
             if agent.type == "Car":
                 car_positions.append(agent.position)
             elif agent.type == "TrafficLight":
-                traffic_lights.append(agent.color)
+                if agent.color == "green":
+                    traffic_lights.append(1)
+                else:
+                    traffic_lights.append(0)
         car_positions = np.asarray(car_positions)
         return (car_positions, traffic_lights)
 

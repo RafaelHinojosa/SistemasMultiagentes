@@ -16,11 +16,11 @@ public class TrafficLightChangeColor : MonoBehaviour
         materialSemaforo = gameObject.GetComponent<MeshRenderer>().material;
     }
 
-    void changeColor(bool state) {
-        if (state == true) {
+    public void changeColor(string state){
+        if (state == "green") {
             prendeVerde();
         }
-        else {
+        else if (state == "red") {
             prendeRojo();
         }
     }

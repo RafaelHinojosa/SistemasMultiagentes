@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 397426805}
+  - component: {fileID: 397426806}
   m_Layer: 0
   m_Name: AgentController
   m_TagString: Untagged
@@ -147,12 +148,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397426804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3678.404, y: 13061.294, z: 4109.2485}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &397426806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397426804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea817f4090defdf45973a010ea275810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  semaforoPrefab: {fileID: 34179831137383470, guid: 3d88d467c3a9180448c28689fd47c78b, type: 3}
+  cocheRojo: {fileID: 1503820030699012920, guid: 07b98ef6f1b5a26489354a7f82fb812a, type: 3}
+  cocheAzul: {fileID: 3741935948173799136, guid: e6500ed911b320a4b95526b07a008df8, type: 3}
+  cocheVerde: {fileID: 2086972401916899288, guid: 145c931edff408346aea2b8b90f135ef, type: 3}
+  timeToUpdate: 4
 --- !u!1001 &5179764723900410366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,15 +188,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3679.631
+      value: 1219.3
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13008.346
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4104.162
+      value: 1183
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalRotation.w

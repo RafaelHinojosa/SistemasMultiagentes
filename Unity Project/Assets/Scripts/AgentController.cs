@@ -12,13 +12,16 @@ using UnityEngine.Networking;
 public class AgentController : MonoBehaviour
 {
     List<List<Vector3>> positions;
-    public GameObject carPrefab;
-    public GameObject trafficLightPrefab;
+    [SerializeField] public GameObject semaforoPrefab;
+    [SerializeField] public GameObject cocheRojo;
+    [SerializeField] public GameObject cocheAzul;
+    [SerializeField] public GameObject cocheVerde;
 
     int totalCars = 0;
     int totalTrafficLights = 4;
 
     List<GameObject> cars;
+    List <GameObject> trafficLightsObjects = new List<GameObject>();
     String[] trafficLights;
     public float timeToUpdate = 4f;
     private float timer;
@@ -80,6 +83,11 @@ public class AgentController : MonoBehaviour
     {
         cars = new List<GameObject>();
         positions = new List<List<Vector3>>();
+
+        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(1195.29f, 9.09f, 1172.05f), Quaternion.Euler(new Vector3(0,90,0))));
+        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(1207.5f, 9.09f, 1196.28f), Quaternion.Euler(new Vector3(0,0,0))));
+        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(1181.92f, 9.09f, 1207.52f), Quaternion.Euler(new Vector3(0,90,0))));
+        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(1171.31f, 9.09f, 1183.57f), Quaternion.Euler(new Vector3(0,0,0))));
     }
 
     // Update is called once per frame
@@ -119,10 +127,30 @@ public class AgentController : MonoBehaviour
 
             if (actualCars > totalCars){
                 for(int i = totalCars; i < actualCars; i++){
-                    cars.Add(Instantiate(carPrefab, positions[positions.Count - 1][i], Quaternion.identity));
+                    int typeNumber = UnityEngine.Random.Range(0, 3);
+                    if (typeNumber < 1){
+                        cars.Add(Instantiate(cocheRojo, positions[positions.Count - 1][i], Quaternion.identity));
+                    }
+                    else if (typeNumber < 2){
+                        cars.Add(Instantiate(cocheAzul, positions[positions.Count - 1][i], Quaternion.identity));
+                    }
+                    else{
+                        cars.Add(Instantiate(cocheVerde, positions[positions.Count - 1][i], Quaternion.identity));
+                    }
                 }
             }
             totalCars = actualCars;
+        }
+
+        if (trafficLights.Length == totalTrafficLights) {
+            for(int i = 0; i < totalTrafficLights; i++) {
+                if (trafficLights[i] && trafficLights[i].Trim() == "1" ) {
+                    trafficLightsObjects[i].GetComponent<TrafficLightChangeColor>().changeColor("green");
+                }
+                else {
+                    trafficLightsObjects[i].GetComponent<TrafficLightChangeColor>().changeColor("red");
+                }
+            }
         }
     }
 }

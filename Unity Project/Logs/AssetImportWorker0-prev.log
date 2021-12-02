@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.21f1 (a38c86f6690f) revision 10718342'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home Single Language; OS build 19042.1348; Version 2009; 64bit' Language: 'es' Physical Memory: 32687 MB
+OS: 'Windows 10 Home Single Language; OS build 19043.1348; Version 2009; 64bit' Language: 'es' Physical Memory: 16269 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
@@ -11,188 +11,113 @@ C:\Program Files\Unity\Hub\Editor\2020.3.21f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/andre/Documents/ITESM/5.Quinto_Semestre/Modelacion de Sistemas Multiagentes/SistemasMultiagentes/Unity Project
+D:/0 5to Semestre/Sistemas Multiagentes/Reto/SistemasMultiagentes/Unity Project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59151
-Successfully changed project path to: C:/Users/andre/Documents/ITESM/5.Quinto_Semestre/Modelacion de Sistemas Multiagentes/SistemasMultiagentes/Unity Project
-C:/Users/andre/Documents/ITESM/5.Quinto_Semestre/Modelacion de Sistemas Multiagentes/SistemasMultiagentes/Unity Project
+49563
+Successfully changed project path to: D:/0 5to Semestre/Sistemas Multiagentes/Reto/SistemasMultiagentes/Unity Project
+D:/0 5to Semestre/Sistemas Multiagentes/Reto/SistemasMultiagentes/Unity Project
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 146.79 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 92.26 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.21f1 (a38c86f6690f)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.21f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/andre/Documents/ITESM/5.Quinto_Semestre/Modelacion de Sistemas Multiagentes/SistemasMultiagentes/Unity Project/Assets
+[Subsystems] Discovering subsystems at path D:/0 5to Semestre/Sistemas Multiagentes/Reto/SistemasMultiagentes/Unity Project/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 2080 with Max-Q Design (ID=0x1ed0)
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 940MX (ID=0x134d)
     Vendor:   
-    VRAM:     8010 MB
-    Driver:   27.21.14.6663
+    VRAM:     4055 MB
+    Driver:   27.21.14.6280
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.21f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.21f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56796
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56168
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.21f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.21f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004757 seconds.
+Registered in 0.002250 seconds.
 Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 101.74 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 85.44 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.428 seconds
+- Completed reload, in  1.363 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3429ms)
-		BeginReloadAssembly (99ms)
+	ReloadAssembly (1363ms)
+		BeginReloadAssembly (87ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (637ms)
-			LoadAssemblies (95ms)
+		EndReloadAssembly (525ms)
+			LoadAssemblies (83ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (200ms)
+			SetupTypeCache (166ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (38ms)
-			SetupLoadedEditorAssemblies (265ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (226ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (102ms)
-				BeforeProcessingInitializeOnLoad (14ms)
-				ProcessInitializeOnLoadAttributes (107ms)
-				ProcessInitializeOnLoadMethodAttributes (34ms)
+				RefreshPlugins (86ms)
+				BeforeProcessingInitializeOnLoad (16ms)
+				ProcessInitializeOnLoadAttributes (90ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.011880 seconds.
+Registered in 0.005515 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file data-0000023B8B69E030 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8669C480 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B860D3C70 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B860D3C70 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B860E9280 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8BF54560 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8AD76230 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B862C6820 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B0AA020 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B863FC720 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B862DCD50 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ProBuilder.Csg.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B862FE830 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8626A0F0 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8AB44010 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8AB44010 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ProBuilder.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8AB44010 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8A8D5030 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8AB44010 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B86683DA0 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8BE89D20 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B5E6010 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B862FE830 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ProBuilder.Poly2Tri.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8635C020 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B370520 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ProBuilder.KdTree.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8AF2D020 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B5CE620 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8AF8AC30 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B69E030 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8C50CC30 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.ProBuilder.Stl.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B5CE620 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.Settings.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8669C250 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8BE89D20 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B5E6010 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B60E620 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B86974040 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0000023B8B60E620 doesn't match image C:\Users\andre\Documents\ITESM\5.Quinto_Semestre\Modelacion de Sistemas Multiagentes\SistemasMultiagentes\Unity Project\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
 Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 106.37 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 124.02 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.726 seconds
+- Completed reload, in  1.579 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1728ms)
-		BeginReloadAssembly (214ms)
+	ReloadAssembly (1580ms)
+		BeginReloadAssembly (163ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (30ms)
-		EndReloadAssembly (1395ms)
-			LoadAssemblies (153ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1349ms)
+			LoadAssemblies (109ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (468ms)
+			SetupTypeCache (426ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (75ms)
-			SetupLoadedEditorAssemblies (542ms)
+			RebuildScriptCaches (86ms)
+			SetupLoadedEditorAssemblies (535ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (107ms)
-				BeforeProcessingInitializeOnLoad (132ms)
+				RefreshPlugins (124ms)
+				BeforeProcessingInitializeOnLoad (114ms)
 				ProcessInitializeOnLoadAttributes (272ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
-				AfterProcessingInitializeOnLoad (12ms)
+				ProcessInitializeOnLoadMethodAttributes (10ms)
+				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 1.24 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3175 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 149.1 MB.
-System memory in use after: 149.2 MB.
+Unloading 3153 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 144.7 MB.
+System memory in use after: 144.9 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 3613.
-Total: 4.886000 ms (FindLiveObjects: 0.449200 ms CreateObjectMapping: 0.317900 ms MarkObjects: 3.981100 ms  DeleteObjects: 0.135800 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 3590.
+Total: 3.947200 ms (FindLiveObjects: 0.319600 ms CreateObjectMapping: 0.209600 ms MarkObjects: 3.263100 ms  DeleteObjects: 0.153200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -201,23 +126,78 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Coche/Materials/Mat_Semaforo.mat
-  artifactKey: Guid(642090ec8e9b2314482d6fc1a02edbce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Coche/Materials/Mat_Semaforo.mat using Guid(642090ec8e9b2314482d6fc1a02edbce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de726afbca6a5bf3c20b0ad15c164ba3') in 0.342346 seconds 
-  Import took 0.349326 seconds .
+  path: Assets/Interseccion/Scenes/Interseccion.unity
+  artifactKey: Guid(a8c792786db67c041ad6728bd1bece5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Interseccion/Scenes/Interseccion.unity using Guid(a8c792786db67c041ad6728bd1bece5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b01278ba34ad67c25bcdba5cfcadafc9') in 0.024732 seconds 
+  Import took 0.032039 seconds .
 
 ========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005915 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.49 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.352 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2353ms)
+		BeginReloadAssembly (181ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (59ms)
+		EndReloadAssembly (2083ms)
+			LoadAssemblies (123ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (612ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (164ms)
+			SetupLoadedEditorAssemblies (742ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (246ms)
+				ProcessInitializeOnLoadAttributes (452ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3022 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 135.4 MB.
+System memory in use after: 135.6 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3592.
+Total: 5.755900 ms (FindLiveObjects: 0.809700 ms CreateObjectMapping: 0.803600 ms MarkObjects: 4.047600 ms  DeleteObjects: 0.093500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
 Received Import Request.
-  Time since last request: 0.000574 seconds.
-  path: Assets/Coche/Materials/Mat_BackLight.mat
-  artifactKey: Guid(7ef73fe8cadde194681c61550a868548) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Coche/Materials/Mat_BackLight.mat using Guid(7ef73fe8cadde194681c61550a868548) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfc31acb5e8494c2f668e47a01001318') in 0.053705 seconds 
-  Import took 0.063201 seconds .
+  Time since last request: 373.206337 seconds.
+  path: Assets/Interseccion/PreFabs/Interseccion arboles completos.prefab
+  artifactKey: Guid(a82cd236a528eff43b50e17e4c5fd43b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Interseccion/PreFabs/Interseccion arboles completos.prefab using Guid(a82cd236a528eff43b50e17e4c5fd43b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5da25422c1102d35807c1346838ca6e8') in 3.100042 seconds 
+  Import took 3.382833 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

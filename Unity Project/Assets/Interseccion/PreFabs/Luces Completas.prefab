@@ -1,0 +1,536 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6003095621384045526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6003095621384045525}
+  m_Layer: 0
+  m_Name: Luces Completas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6003095621384045525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6003095621384045526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3741.4294, y: 2672.849, z: 3842.4827}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 931588917848099112}
+  - {fileID: 6003095620483605828}
+  - {fileID: 931588918033242603}
+  - {fileID: 931588916390265083}
+  - {fileID: 931588917653661011}
+  - {fileID: 931588916794458303}
+  - {fileID: 931588916420063593}
+  - {fileID: 931588918191172014}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &931588916596292693
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6003095621384045525}
+    m_Modifications:
+    - target: {fileID: 6891330440801114384, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_Name
+      value: Lights of a Street Side
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3749.4294
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2672.849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3842.4827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+--- !u!4 &6003095620483605828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+  m_PrefabInstance: {fileID: 931588916596292693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6003095620257179768
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6003095621384045525}
+    m_Modifications:
+    - target: {fileID: 6891330440801114384, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_Name
+      value: Lights of a Street Side (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3818.3704
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2672.849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2444.4827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+--- !u!4 &931588916420063593 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+  m_PrefabInstance: {fileID: 6003095620257179768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6003095620287158762
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6003095621384045525}
+    m_Modifications:
+    - target: {fileID: 6891330440801114384, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_Name
+      value: Lights of a Street Side (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3919.8293
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2672.849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3719.0173
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+--- !u!4 &931588916390265083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+  m_PrefabInstance: {fileID: 6003095620287158762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6003095620421736878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6003095621384045525}
+    m_Modifications:
+    - target: {fileID: 6891330440801114384, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_Name
+      value: Lights of a Street Side (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2408.5706
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2672.8503
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3903.5173
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.002462939
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -2.1406008e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99999696
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000011920891
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 179.718
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+--- !u!4 &931588916794458303 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+  m_PrefabInstance: {fileID: 6003095620421736878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6003095620586733818
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6003095621384045525}
+    m_Modifications:
+    - target: {fileID: 6891330440801114384, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_Name
+      value: Lights of a Street Side (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2524.7295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2672.849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3842.4827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+--- !u!4 &931588918033242603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+  m_PrefabInstance: {fileID: 6003095620586733818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6003095620971196607
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6003095621384045525}
+    m_Modifications:
+    - target: {fileID: 6891330440801114384, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_Name
+      value: Lights of a Street Side (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3818.3704
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2672.849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3666.4827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+--- !u!4 &931588918191172014 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+  m_PrefabInstance: {fileID: 6003095620971196607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6003095621442965561
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6003095621384045525}
+    m_Modifications:
+    - target: {fileID: 6891330440801114384, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_Name
+      value: Lights of a Street Side (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3918.4294
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2672.849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2505.4172
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+--- !u!4 &931588917848099112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+  m_PrefabInstance: {fileID: 6003095621442965561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6003095621507398722
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6003095621384045525}
+    m_Modifications:
+    - target: {fileID: 6891330440801114384, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_Name
+      value: Lights of a Street Side (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3627.5706
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2672.8503
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3909.7175
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.002462939
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -2.1406008e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99999696
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000011920891
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 179.718
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+--- !u!4 &931588917653661011 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6891330440801114385, guid: b942c343405b21c4c838fcdb6cdf2ead, type: 3}
+  m_PrefabInstance: {fileID: 6003095621507398722}
+  m_PrefabAsset: {fileID: 0}

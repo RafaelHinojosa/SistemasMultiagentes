@@ -37,7 +37,7 @@ class UrbanMovementModel(Model):
         self.total_wait_time = 0
         self.time_unnecessary_light = 0
         
-        # (carril, semáforo, [carriles destino], direction)
+        # (carril, semáforo, [carriles destino])
         self.intersection = [(1, 1, [8, 12]), (2, 1, [3, 7]), 
                             (5, 2, [12, 16]), (6, 2, [7, 11]),
                             (9, 3, [4, 16]), (10, 3, [11, 15]), 
@@ -91,7 +91,7 @@ class UrbanMovementModel(Model):
     def createAgents(self):
         for i in range(len(self.intersection)):
             if self.time_for_spawn[i] <= 0 and random.random() <= self.spawn_cars:
-                self.time_for_spawn[i] = 3
+                self.time_for_spawn[i] = 2
                 (road, light, dest) = self.intersection[i]
                 j = np.random.randint(len(dest))
                 self.num_agents += 1
@@ -141,7 +141,7 @@ class UrbanMovementModel(Model):
         elif self.actual_light != None and self.light_agents[self.actual_light].status == 0:
             self.past_light = self.actual_light
             self.actual_light = None
-            self.delay_next_light = 4
+            self.delay_next_light = 3
         else:
             self.delay_next_light -= 1
     
@@ -154,9 +154,7 @@ class UrbanMovementModel(Model):
             elif agent.type == "TrafficLight":
                 traffic_lights.append(agent.color)
         car_positions = np.asarray(car_positions)
-        traffic_lights = np.asarray(traffic_lights)
         return (car_positions, traffic_lights)
-
 
 
     def step(self):

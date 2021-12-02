@@ -1,5 +1,3 @@
-# matplotlib lo usaremos crear una animación de cada uno de los pasos del modelo.
-#%matplotlib inline
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -11,7 +9,7 @@ import UrbanMovementModel as UrbanM
 WIDTH = 10000
 HEIGHT = 10000
 INTERSECT_DIST = 400
-PROB_SPAWN = 0.01
+PROB_SPAWN = 0.05
 MAX_TIME_ON = 40
 MAX_TIME_OFF = 150
 SEED = 1

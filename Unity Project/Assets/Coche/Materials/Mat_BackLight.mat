@@ -123,7 +123,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _baseColorBlendIntensity: 0.545
+    - _baseColorBlendIntensity: 0.828
     - _emissiveIntensity: 4.74
     - _hasAO: 0
     - _hasMask: 1

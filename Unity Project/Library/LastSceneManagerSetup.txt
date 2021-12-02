@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/POLYGON city pack/scene/DemoScene.unity
+- path: Assets/Interseccion/Scenes/Interseccion.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

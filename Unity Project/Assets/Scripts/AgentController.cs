@@ -78,6 +78,51 @@ public class AgentController : MonoBehaviour
 
     }
 
+    IEnumerator GetRequest()
+    {
+        string url = "https://urbanmovement-server.us-south.cf.appdomain.cloud/";
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+
+            yield return www.SendWebRequest();          // Talk to Python
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                List<Vector3> newPositions = new List<Vector3>();
+                string txt = www.downloadHandler.text.Replace('\'', '\"');
+                print(txt);
+
+                string[] divide = txt.Split(new string[] { "],\"lights\":[" }, StringSplitOptions.None);
+
+                string txtCars = divide[0];
+                txtCars = txtCars.TrimStart('{', '\"', 'c', 'a', 'r', 's', '\"', ':', '[');
+                txtCars = "{\"" + txtCars;
+                
+                string[] strs = txtCars.Split(new string[] { "}, {" }, StringSplitOptions.None);
+                for (int i = 0; i < strs.Length; i++) {
+                    strs[i] = strs[i].Trim();
+                    if (i == 0) strs[i] = strs[i] + '}';
+                    else if (i == strs.Length - 1) strs[i] = '{' + strs[i];
+                    else strs[i] = '{' + strs[i] + '}';
+                    Vector3 pos = JsonUtility.FromJson<Vector3>(strs[i]);
+                    newPositions.Add(pos);
+                }
+                positions.Add(newPositions);
+                if(positions.Count >= 3){
+                    positions.RemoveAt(0);
+                }
+
+                string txtLights = divide[1];
+                txtLights = txtLights.TrimEnd(']', '}');
+                trafficLights = txtLights.Split(new string[] { "," }, StringSplitOptions.None);
+            }
+        }
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,7 +147,8 @@ public class AgentController : MonoBehaviour
             timer = timeToUpdate; // reset the timer
             Vector3 fakePos = new Vector3(3.44f, 0, -15.707f);
             string json = EditorJsonUtility.ToJson(fakePos);
-            StartCoroutine(SendData(json));
+            //StartCoroutine(SendData(json));
+            StartCoroutine(GetRequest());
 #endif
         }
 

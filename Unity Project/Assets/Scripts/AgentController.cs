@@ -84,10 +84,10 @@ public class AgentController : MonoBehaviour
         cars = new List<GameObject>();
         positions = new List<List<Vector3>>();
 
-        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(1195.29f, 9.09f, 1172.05f), Quaternion.Euler(new Vector3(0,90,0))));
-        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(1207.5f, 9.09f, 1196.28f), Quaternion.Euler(new Vector3(0,0,0))));
-        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(1181.92f, 9.09f, 1207.52f), Quaternion.Euler(new Vector3(0,90,0))));
-        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(1171.31f, 9.09f, 1183.57f), Quaternion.Euler(new Vector3(0,0,0))));
+        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(123.8f, 9.09f, 106f), Quaternion.Euler(new Vector3(0,90,0))));
+        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(131.8f, 9.09f, 123.6f), Quaternion.Euler(new Vector3(0,0,0))));
+        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(110.9f, 9.09f, 132.7f), Quaternion.Euler(new Vector3(0,90,0))));
+        trafficLightsObjects.Add(Instantiate(semaforoPrefab, new Vector3(102.4f, 9.09f, 111.8f), Quaternion.Euler(new Vector3(0,0,0))));
     }
 
     // Update is called once per frame
@@ -121,7 +121,9 @@ public class AgentController : MonoBehaviour
                     cars[s].transform.localPosition = interpolated;
 
                     Vector3 dir = last[s] - prevLast[s];
-                    cars[s].transform.rotation = Quaternion.LookRotation(dir);
+                    if(dir != Vector3.zero){
+                        cars[s].transform.rotation = Quaternion.LookRotation(dir);
+                    }
                 }
             }
 
@@ -143,8 +145,9 @@ public class AgentController : MonoBehaviour
         }
 
         if (trafficLights.Length == totalTrafficLights) {
+            String[] copyTrafficLights = trafficLights;
             for(int i = 0; i < totalTrafficLights; i++) {
-                if (trafficLights[i] && trafficLights[i].Trim() == "1" ) {
+                if(copyTrafficLights[i].Trim() == "1" ) {
                     trafficLightsObjects[i].GetComponent<TrafficLightChangeColor>().changeColor("green");
                 }
                 else {

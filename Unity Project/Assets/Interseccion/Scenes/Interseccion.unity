@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &121717490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5179764723837844490, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
+  m_PrefabInstance: {fileID: 5179764723900410366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &397426804
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +176,62 @@ MonoBehaviour:
   cocheAzul: {fileID: 3741935948173799136, guid: e6500ed911b320a4b95526b07a008df8, type: 3}
   cocheVerde: {fileID: 2086972401916899288, guid: 145c931edff408346aea2b8b90f135ef, type: 3}
   timeToUpdate: 4
+--- !u!1 &470856208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5179764723397113190, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
+  m_PrefabInstance: {fileID: 5179764723900410366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &637870939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 637870941}
+  - component: {fileID: 637870940}
+  m_Layer: 0
+  m_Name: CameraShift
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &637870940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637870939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff456a04973e5fe46bbb7a314ea49ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam1: {fileID: 470856208}
+  cam2: {fileID: 1880620375}
+  cam3: {fileID: 121717490}
+--- !u!4 &637870941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637870939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 115.135864, y: 27.074465, z: 116.1124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1880620375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5179764725029223804, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
+  m_PrefabInstance: {fileID: 5179764723900410366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5179764723900410366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,6 +239,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5179764723397113190, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179764723837844490, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543620, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_Name
       value: Interseccion Luces y Camaras
@@ -188,15 +257,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1219.3
+      value: 146.5
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1183
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -224,6 +293,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5179764724059543621, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179764725029223800, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179764725029223804, guid: 35bbaa3cd54e3544982d3a772a8c7ee1, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

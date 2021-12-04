@@ -20,7 +20,7 @@ class CarAgent(Agent):
         self.light_agent = light_agent
         self.light_agent.n_cars += 1
         # Speed limit
-        self.max_speed = self.stop_distance
+        self.max_speed = self.stop_distance / 2
         self.crossed_traffic_light = None
         self.total_wait = 0
         self.curved_finished = False
@@ -136,11 +136,11 @@ class CarAgent(Agent):
 
 
     def is_far_from_traffic_light(self):
-        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) > self.stop_distance)
+        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) > self.stop_distance * 3)
 
 
     def is_about_cross_traffic_light(self):
-        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) < self.stop_distance * 1.5)
+        return (abs(np.linalg.norm(self.position + self.speed - self.curve_origin)) < self.stop_distance * 4.5)
 
 
     def is_far_from_next_car(self, is_front):
@@ -151,7 +151,7 @@ class CarAgent(Agent):
             next_car = self.model.roads_agents[self.road_number][queue_position - 1]
             self_speed = np.linalg.norm(self.speed)
             self_acceleration = np.linalg.norm(self.acceleration)
-            distance_to_stop = abs(0.5 * self_speed * self_speed / self_acceleration) + self.next_car_min_distance
+            distance_to_stop = abs(0.5 * self_speed * self_speed / self_acceleration) + (self.next_car_min_distance * 3)
             return (abs(np.linalg.norm((self.position + self.speed) - (next_car.position + next_car.speed))) > distance_to_stop)
 
     def has_crossed_traffic_light(self):
